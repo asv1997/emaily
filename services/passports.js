@@ -9,6 +9,7 @@ const User = mongoose.model('users'); //we are trying to fetch from mongoose fro
 
 
 passport.use(new GoogleStratergy({
+    proxy:true,
     clientID: keys.googleCLIENTID,
     clientSecret: keys.googeleCLIENTSECRET,
     callbackURL: '/auth/google/callback' //the route where the user will be redirected to once the user gives the permission to access their email

@@ -11,21 +11,25 @@ class Header extends React.Component {
   renderLoginStatus(){
    if(this.props.currentUser){
      return(
-      <ul id="nav" className="right">
-        <li style={{marginRight:"50px"}}>Credits : {this.props.currentUser.credits}</li>
+       <div>
+      <ul id="nav-mobile" className="right">
+        <li style={{marginRight:"10px"}}>Credits : {this.props.currentUser.credits}</li>
         <li><Payments /></li>
       <li><a href="/api/logout">Logout</a></li>
+      </ul>
+      </div>
 
       
-    </ul>
+   
      );
 
    }
    else if (this.props.currentUser === false){
       return(
-        <ul id="nav" className="right">
+        <ul id="nav-mobile" className="right">
     <li><a href="/auth/google">Login</a></li>
-  </ul>
+    </ul>
+ 
       );
    }
 
@@ -41,15 +45,17 @@ class Header extends React.Component {
    render(){
      console.log(this.props.currentUser)
     return(
-      <div className="container">
+     
         <nav>
     <div className="nav-wrapper">
-      <Link to={this.props.currentUser ?'/surveys' : '/'} className="brand-logo">EMaily</Link>
+      <Link to={this.props.currentUser ?'/surveys' : '/'} className="brand-logo left">EMaily</Link>
+     
       {this.renderLoginStatus()}
+      
      
     </div>
   </nav>
-  </div>
+  
     )
    }
 }

@@ -7,6 +7,7 @@ const bodyParser = require('body-parser')
 const mongoURI = require('./config/keys').mongoURI;
 const cookieKey = require('./config/keys').cookieKey;
 require('./models/User')
+require('./models/Survey')
 require('./services/passports') //since we are are not exporting or returning anything we just set require  
 
 
@@ -30,6 +31,7 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app); //directly writing it here which is clearly valid
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 
 if(process.env.NODE_ENV === 'production'){

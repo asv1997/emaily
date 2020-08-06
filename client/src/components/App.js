@@ -5,34 +5,34 @@ import {fetchUser} from '../actions/index'
 
 import Header from './Header'
 import Landing from'./Landing'
+import Dashboard from './Dashboard'
+import SurveyNew from './Surveys/SurveyNew'
 
 
 
-const Edit = () => <div>Edit Page</div>
-const Delete = () => <div>Delete Page</div>
-const Dashboard = () => <div>Dashboard</div>
+
+
 
 class App extends React.Component {
 
     componentDidMount(){
         this.props.fetchUser();
-        
-
-    }
+      }
 
     render (){
         return(
-            <div>
+            
             <BrowserRouter>
-                 <div >
+                 <div className="container" >
                   <Header/>
                  <Route path="/" component={Landing} exact></Route>
-                 <Route path="/edit" component={Edit} exact></Route>
+                
                  <Route exact path="/surveys" component={Dashboard}></Route>
-                 <Route path="/delete" component={Delete} exact></Route>
+                 <Route exact path="/surveys/new" component={SurveyNew}></Route>
+                
                  </div>
              </BrowserRouter>
-         </div>
+        
         )
     }
 

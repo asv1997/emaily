@@ -30,7 +30,7 @@ class SurveyForm extends React.Component{
                 <Field label="Survey Title" type="text" name="title" component={SurveyField} />
                 <Field label="Email Subject" type="text" name="subject" component={SurveyField} />
                 <Field label="Email Body" type="text" name="body" component={SurveyField} />
-                <Field label="Recipients" type="text" name="recipients" component={SurveyField} />
+                <Field label="Recipients" type="text" name="recipients" component={SurveyField}  />
                
             </div>
         )
@@ -60,6 +60,7 @@ const validate = (values) => {
     const errors = {};
 
     if(!values.title){
+       
         errors.title = 'You must provide a title';
     }
 
@@ -77,11 +78,7 @@ const validate = (values) => {
         errors.recipients = 'You must provide atleast one recipient';
     }
 
-    
-
-
-
-    return errors;
+     return errors;
 }
 export default reduxForm({
     validate: validate,
